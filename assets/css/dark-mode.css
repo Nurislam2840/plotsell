@@ -1,0 +1,51 @@
+/* ============================================
+   START: Dark Mode Theme
+   ============================================ */
+[data-theme="dark"] {
+  --ivory: #0a1410;
+  --charcoal: #e8e6df;
+  --muted: #9ca3af;
+}
+[data-theme="dark"] body { background: #0a1410; color: #e8e6df; }
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4 { color: #F7F5EF; }
+[data-theme="dark"] .plot-card,
+[data-theme="dark"] .spec-box,
+[data-theme="dark"] .review-card,
+[data-theme="dark"] .sidebar-card,
+[data-theme="dark"] .testimonial,
+[data-theme="dark"] .blog-card,
+[data-theme="dark"] .filters,
+[data-theme="dark"] .emi-form,
+[data-theme="dark"] .converter,
+[data-theme="dark"] .quiz-wrap {
+  background: #12211a; border-color: rgba(200,162,74,0.15); color: #e8e6df;
+}
+[data-theme="dark"] .form-input,
+[data-theme="dark"] .form-select,
+[data-theme="dark"] .form-textarea,
+[data-theme="dark"] .custom-select__trigger {
+  background: #0f1a14; border-color: rgba(200,162,74,0.2); color: #e8e6df;
+}
+[data-theme="dark"] .custom-select__menu { background: #12211a; border-color: rgba(200,162,74,0.3); }
+[data-theme="dark"] .custom-select__option { color: #e8e6df; }
+[data-theme="dark"] .custom-select__option:hover { background: rgba(200,162,74,0.15); color: var(--gold); }
+[data-theme="dark"] .plot-card__title,
+[data-theme="dark"] .plot-card__price,
+[data-theme="dark"] .spec-box__value { color: #F7F5EF; }
+[data-theme="dark"] .plot-card__footer { border-color: rgba(255,255,255,0.08); }
+[data-theme="dark"] .section { background: #0a1410; }
+[data-theme="dark"] .btn--outline-dark { color: #F7F5EF; border-color: rgba(247,245,239,0.25); }
+[data-theme="dark"] .btn--outline-dark:hover { background: var(--gold); color: var(--forest); }
+[data-theme="dark"] .search-modal__inner { background: #12211a; }
+[data-theme="dark"] .search-modal__input { color: #F7F5EF; }
+[data-theme="dark"] .search-result:hover { background: rgba(200,162,74,0.15); }
+[data-theme="dark"] .compare-table { background: #12211a; }
+[data-theme="dark"] .compare-table td { color: #e8e6df; border-color: rgba(200,162,74,0.1); }
+[data-theme="dark"] .page-header { background: #050d0a; }
+[data-theme="dark"] .stat-item__label { color: rgba(247,245,239,0.6); }
+[data-theme="dark"] .review-card__text { color: #e8e6df; }
+[data-theme="dark"] .plot-card__body { background: #12211a; }
+[data-theme="dark"] .detail-gallery__thumbs img { opacity: 0.6; }
+/* ============================================
+   END: Dark Mode Theme
+   ============================================ */
