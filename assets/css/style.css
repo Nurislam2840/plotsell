@@ -1,0 +1,104 @@
+/* ============================================
+   START: Global Styles / Design System
+   ============================================ */
+:root {
+  --forest: #0B1F17;
+  --forest-light: #14291f;
+  --gold: #C8A24A;
+  --gold-light: #d9b869;
+  --ivory: #F7F5EF;
+  --charcoal: #1A1A1A;
+  --muted: #6b7280;
+  --border: rgba(200, 162, 74, 0.15);
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  --shadow-md: 0 4px 20px rgba(11, 31, 23, 0.08);
+  --shadow-lg: 0 10px 40px rgba(11, 31, 23, 0.12);
+  --shadow-gold: 0 8px 30px rgba(200, 162, 74, 0.25);
+  --t-fast: 0.2s ease;
+  --t-base: 0.35s ease;
+  --t-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* ============================================
+   END: Global Styles / Design System
+   ============================================ */
+
+/* ============================================
+   START: Reset & Base
+   ============================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  font-size: 1rem; line-height: 1.65;
+  color: var(--charcoal); background: var(--ivory);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; transition: color var(--t-fast); }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+ul, ol { list-style: none; }
+/* ============================================
+   END: Reset & Base
+   ============================================ */
+
+/* ============================================
+   START: Typography
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 700; line-height: 1.2;
+  color: var(--forest);
+}
+h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h4 { font-size: 1.25rem; }
+.eyebrow {
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1rem;
+}
+.text-muted { color: var(--muted); }
+.text-gold { color: var(--gold); }
+.text-center { text-align: center; }
+/* ============================================
+   END: Typography
+   ============================================ */
+
+/* ============================================
+   START: Layout Utilities
+   ============================================ */
+.container {
+  width: 100%; max-width: 1280px;
+  margin: 0 auto; padding: 0 1.5rem;
+}
+.section { padding: 6rem 0; }
+.section--dark { background: var(--forest); color: var(--ivory); }
+.section--dark h1, .section--dark h2,
+.section--dark h3, .section--dark h4 { color: var(--ivory); }
+.section--dark p { color: rgba(247, 245, 239, 0.7); }
+.section-head {
+  text-align: center; max-width: 680px;
+  margin: 0 auto 4rem;
+}
+.section-head p { color: var(--muted); font-size: 1.05rem; }
+.grid { display: grid; gap: 2.5rem; }
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 992px) {
+  .grid--3, .grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
+  .section { padding: 4rem 0; }
+}
+/* ============================================
+   END: Layout Utilities
+   ============================================ */
