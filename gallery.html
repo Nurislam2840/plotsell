@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- ============================================
+     START: Head - Meta
+     ============================================ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — PlotSell</title>
+<meta name="description" content="Visual tour through our premium plots and landscapes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!-- ============================================
+     END: Head - Meta
+     ============================================ -->
+
+<!-- ============================================
+     START: CSS Files
+     ============================================ -->
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/features.css">
+<link rel="stylesheet" href="assets/css/dark-mode.css">
+<link rel="stylesheet" href="assets/css/features-v2.css">
+<!-- ============================================
+     END: CSS Files
+     ============================================ -->
+
+<!-- ============================================
+     START: PWA & Theme
+     ============================================ -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0B1F17">
+<script>if(localStorage.getItem('plotsell_theme')==='dark')document.documentElement.setAttribute('data-theme','dark');if(localStorage.getItem('plotsell_font'))document.documentElement.style.fontSize={small:'90%',medium:'100%',large:'112%',xlarge:'124%'}[localStorage.getItem('plotsell_font')]||'100%';</script>
+<!-- ============================================
+     END: PWA & Theme
+     ============================================ -->
+</head>
+<body>
+
+<!-- ============================================
+     START: Navbar Mount
+     ============================================ -->
+<div id="navbar-mount"></div>
+<!-- ============================================
+     END: Navbar Mount
+     ============================================ -->
+
+<!-- ============================================
+     START: Page Header
+     ============================================ -->
+<header class="page-header">
+  <div class="container">
+    <p class="eyebrow">Visual Tour</p>
+    <h1>Gallery</h1>
+    <p>A visual journey through our premium plots and landscapes.</p>
+  </div>
+</header>
+<!-- ============================================
+     END: Page Header
+     ============================================ -->
+
+<!-- ============================================
+     START: Gallery Grid
+     ============================================ -->
+<section class="section">
+  <div class="container">
+    <div class="gallery-grid" id="gallery-grid"></div>
+  </div>
+</section>
+<!-- ============================================
+     END: Gallery Grid
+     ============================================ -->
+
+<!-- ============================================
+     START: Footer Mount
+     ============================================ -->
+<div id="footer-mount"></div>
+<!-- ============================================
+     END: Footer Mount
+     ============================================ -->
+
+<!-- ============================================
+     START: Scripts
+     ============================================ -->
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/toast.js"></script>
+<script src="assets/js/darkmode.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/lightbox.js"></script>
+<script src="assets/js/whatsapp.js"></script>
+<script src="assets/js/cursor.js"></script>
+<script src="assets/js/translate.js"></script>
+<script src="assets/js/features-init.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const grid = document.getElementById('gallery-grid');
+    if (!grid) return;
+    const imgs = PLOTS.map(p => p.image).concat(PLOTS.flatMap(p => p.gallery)).slice(0, 12);
+    grid.innerHTML = [...new Set(imgs)].map(src => `<img src="${src}" alt="Gallery" loading="lazy">`).join('');
+    setTimeout(() => {
+      grid.querySelectorAll('img').forEach(img => {
+        img.setAttribute('data-lightbox', '1');
+        img.setAttribute('data-lightbox-group', 'gallery');
+      });
+    }, 100);
+  });
+</script>
+<script src="assets/js/currency.js"></script>
+<script src="assets/js/scroll-progress.js"></script>
+<script src="assets/js/cookie-consent.js"></script>
+<script src="assets/js/font-adjuster.js"></script>
+<script src="assets/js/reading-progress.js"></script>
+<script src="assets/js/qrcode-generator.js"></script>
+<script src="assets/js/pwa.js"></script>
+<script src="assets/js/features-v2-init.js"></script>
+<!-- ============================================
+     END: Scripts
+     ============================================ -->
+
+</body>
+</html>

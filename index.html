@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- ============================================
+     START: Head - Meta & Fonts
+     ============================================ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PlotSell — Premium Land & Plots for Sale</title>
+<meta name="description" content="Discover exclusive land plots for your dream home or investment.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!-- ============================================
+     END: Head - Meta & Fonts
+     ============================================ -->
+
+<!-- ============================================
+     START: CSS Files
+     ============================================ -->
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/features.css">
+<link rel="stylesheet" href="assets/css/dark-mode.css">
+<link rel="stylesheet" href="assets/css/features-v2.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<!-- ============================================
+     END: CSS Files
+     ============================================ -->
+
+<!-- ============================================
+     START: PWA & Theme
+     ============================================ -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0B1F17">
+<script>if(localStorage.getItem('plotsell_theme')==='dark')document.documentElement.setAttribute('data-theme','dark');if(localStorage.getItem('plotsell_font'))document.documentElement.style.fontSize={small:'90%',medium:'100%',large:'112%',xlarge:'124%'}[localStorage.getItem('plotsell_font')]||'100%';</script>
+<!-- ============================================
+     END: PWA & Theme
+     ============================================ -->
+</head>
+<body>
+
+<!-- ============================================
+     START: Navbar Mount
+     ============================================ -->
+<div id="navbar-mount"></div>
+<!-- ============================================
+     END: Navbar Mount
+     ============================================ -->
+
+<!-- ============================================
+     START: Hero Section
+     ============================================ -->
+<section class="hero">
+  <div class="hero__bg"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80" alt="Premium land"></div>
+  <div class="hero__overlay"></div>
+  <div class="container hero__content">
+    <p class="eyebrow">Exclusive Land Opportunities</p>
+    <h1>Own a Piece of<br><span class="text-gold">Extraordinary</span></h1>
+    <p class="hero__sub">Discover the most prestigious plots of land, carefully curated for those who demand nothing but the best.</p>
+    <div class="hero__actions">
+      <a href="plots.html" class="btn btn--primary btn--lg">Explore Plots →</a>
+      <a href="book-visit.html" class="btn btn--outline btn--lg">Book a Consultation</a>
+    </div>
+  </div>
+</section>
+<!-- ============================================
+     END: Hero Section
+     ============================================ -->
+
+<!-- ============================================
+     START: Trust Bar
+     ============================================ -->
+<section class="trust-bar section--dark">
+  <div class="container grid grid--3">
+    <div class="trust-item"><div class="trust-item__icon">🛡️</div><h4>100% Verified Titles</h4><p>Legally checked and approved</p></div>
+    <div class="trust-item"><div class="trust-item__icon">📄</div><h4>Complete Documentation</h4><p>Khatian, Deed, and Mutation</p></div>
+    <div class="trust-item"><div class="trust-item__icon">⏱️</div><h4>15+ Years of Expertise</h4><p>Trusted by 5,000+ clients</p></div>
+  </div>
+</section>
+<!-- ============================================
+     END: Trust Bar
+     ============================================ -->
+
+<!-- ============================================
+     START: Stats Counter
+     ============================================ -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-item__num" data-count="500" data-suffix="+">0</div><div class="stat-item__label">Plots Sold</div></div>
+      <div class="stat-item"><div class="stat-item__num" data-count="98" data-suffix="%">0</div><div class="stat-item__label">Client Satisfaction</div></div>
+      <div class="stat-item"><div class="stat-item__num" data-count="15" data-suffix="+">0</div><div class="stat-item__label">Years Experience</div></div>
+      <div class="stat-item"><div class="stat-item__num" data-count="25" data-suffix="+">0</div><div class="stat-item__label">Cities Covered</div></div>
+    </div>
+  </div>
+</section>
+<!-- ============================================
+     END: Stats Counter
+     ============================================ -->
+
+<!-- ============================================
+     START: Featured Plots
+     ============================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head"><p class="eyebrow">Featured Listings</p><h2>Our Curated Collection</h2><p>Each plot is hand-selected for its unique character, location, and potential.</p></div>
+    <div class="grid grid--3" id="featured-plots"></div>
+    <div style="text-align:center;margin-top:3rem;"><a href="plots.html" class="btn btn--outline-dark">View All Plots →</a></div>
+  </div>
+</section>
+<!-- ============================================
+     END: Featured Plots
+     ============================================ -->
+
+<!-- ============================================
+     START: Why PlotSell
+     ============================================ -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="section-head"><p class="eyebrow">Why PlotSell</p><h2>We Don't Just Sell Land.<br>We Curate Legacies.</h2></div>
+    <div class="grid grid--3">
+      <div class="trust-item"><div class="trust-item__icon">⚖️</div><h4>Legally Verified</h4><p>Every plot undergoes rigorous legal due diligence.</p></div>
+      <div class="trust-item"><div class="trust-item__icon">💎</div><h4>Curated Selection</h4><p>Only premium plots make it to our portfolio.</p></div>
+      <div class="trust-item"><div class="trust-item__icon">🤝</div><h4>End-to-End Support</h4><p>From site visit to registration.</p></div>
+    </div>
+  </div>
+</section>
+<!-- ============================================
+     END: Why PlotSell
+     ============================================ -->
+
+<!-- ============================================
+     START: Interactive Map
+     ============================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head"><p class="eyebrow">Interactive Map</p><h2>Explore Our Locations</h2><p>Click on any gold marker to see plot details.</p></div>
+    <div class="map-wrap"><div id="map"></div></div>
+  </div>
+</section>
+<!-- ============================================
+     END: Interactive Map
+     ============================================ -->
+
+<!-- ============================================
+     START: Testimonials
+     ============================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head"><p class="eyebrow">Testimonials</p><h2>Trusted by Thousands</h2></div>
+    <div class="grid grid--3" id="testimonials"></div>
+  </div>
+</section>
+<!-- ============================================
+     END: Testimonials
+     ============================================ -->
+
+<!-- ============================================
+     START: Blog Highlights
+     ============================================ -->
+<section class="section" style="background:#f0ede4;">
+  <div class="container">
+    <div class="section-head"><p class="eyebrow">Insights</p><h2>From Our Blog</h2></div>
+    <div class="grid grid--3" id="blog-highlights"></div>
+  </div>
+</section>
+<!-- ============================================
+     END: Blog Highlights
+     ============================================ -->
+
+<!-- ============================================
+     START: Newsletter
+     ============================================ -->
+<section class="section">
+  <div class="container">
+    <div class="newsletter">
+      <p class="eyebrow">Stay Updated</p>
+      <h2 style="color:var(--ivory);">Get Exclusive Plot Alerts</h2>
+      <p>Be the first to know about new premium plots and price drops.</p>
+      <form class="newsletter__form" data-newsletter>
+        <input type="email" placeholder="your@email.com" required>
+        <button type="submit" class="btn btn--primary">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+<!-- ============================================
+     END: Newsletter
+     ============================================ -->
+
+<!-- ============================================
+     START: Final CTA
+     ============================================ -->
+<section class="section section--dark">
+  <div class="container cta-section">
+    <h2>Ready to Find Your Perfect Plot?</h2>
+    <p>Schedule a private site visit with our land specialists.</p>
+    <div class="btn-group">
+      <a href="book-visit.html" class="btn btn--primary btn--lg">Book a Site Visit</a>
+      <a href="contact.html" class="btn btn--outline btn--lg">Contact Us</a>
+    </div>
+  </div>
+</section>
+<!-- ============================================
+     END: Final CTA
+     ============================================ -->
+
+<!-- ============================================
+     START: Footer Mount
+     ============================================ -->
+<div id="footer-mount"></div>
+<!-- ============================================
+     END: Footer Mount
+     ============================================ -->
+
+<!-- ============================================
+     START: Core Scripts
+     ============================================ -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/favorites.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/custom-select.js"></script>
+<script src="assets/js/toast.js"></script>
+<script src="assets/js/darkmode.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/map.js"></script>
+<script src="assets/js/lightbox.js"></script>
+<script src="assets/js/counter.js"></script>
+<script src="assets/js/newsletter.js"></script>
+<script src="assets/js/whatsapp.js"></script>
+<script src="assets/js/cursor.js"></script>
+<script src="assets/js/translate.js"></script>
+<script src="assets/js/parallax.js"></script>
+<script src="assets/js/home.js"></script>
+<script src="assets/js/features-init.js"></script>
+<!-- ============================================
+     END: Core Scripts
+     ============================================ -->
+
+<!-- ============================================
+     START: v2.0 Scripts
+     ============================================ -->
+<script src="assets/js/currency.js"></script>
+<script src="assets/js/scroll-progress.js"></script>
+<script src="assets/js/cookie-consent.js"></script>
+<script src="assets/js/font-adjuster.js"></script>
+<script src="assets/js/reading-progress.js"></script>
+<script src="assets/js/qrcode-generator.js"></script>
+<script src="assets/js/pwa.js"></script>
+<script src="assets/js/features-v2-init.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(typeof initPlotMap==='function')initPlotMap('map')},400));</script>
+<!-- ============================================
+     END: v2.0 Scripts
+     ============================================ -->
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- ============================================
+     START: Head - Meta
+     ============================================ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit Converter — PlotSell</title>
+<meta name="description" content="Convert land units: Katha, Bigha, Acre, Shatak, Sq Ft and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!-- ============================================
+     END: Head - Meta
+     ============================================ -->
+
+<!-- ============================================
+     START: CSS Files
+     ============================================ -->
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/features.css">
+<link rel="stylesheet" href="assets/css/dark-mode.css">
+<link rel="stylesheet" href="assets/css/features-v2.css">
+<!-- ============================================
+     END: CSS Files
+     ============================================ -->
+
+<!-- ============================================
+     START: PWA & Theme
+     ============================================ -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0B1F17">
+<script>if(localStorage.getItem('plotsell_theme')==='dark')document.documentElement.setAttribute('data-theme','dark');if(localStorage.getItem('plotsell_font'))document.documentElement.style.fontSize={small:'90%',medium:'100%',large:'112%',xlarge:'124%'}[localStorage.getItem('plotsell_font')]||'100%';</script>
+<!-- ============================================
+     END: PWA & Theme
+     ============================================ -->
+</head>
+<body>
+
+<!-- ============================================
+     START: Navbar Mount
+     ============================================ -->
+<div id="navbar-mount"></div>
+<!-- ============================================
+     END: Navbar Mount
+     ============================================ -->
+
+<!-- ============================================
+     START: Page Header
+     ============================================ -->
+<header class="page-header">
+  <div class="container">
+    <p class="eyebrow">Land Units</p>
+    <h1>Unit Converter</h1>
+    <p>Convert between Katha, Shatak, Acre, Bigha, Sq Ft and more.</p>
+  </div>
+</header>
+<!-- ============================================
+     END: Page Header
+     ============================================ -->
+
+<!-- ============================================
+     START: Converter Section
+     ============================================ -->
+<section class="section">
+  <div class="container" style="max-width:720px;">
+    <div class="converter">
+      <div class="converter__row">
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">From</label>
+          <select class="form-select" id="conv-from"></select>
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">Value</label>
+          <input type="number" class="form-input" id="conv-value" value="1">
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">To</label>
+          <select class="form-select" id="conv-to"></select>
+        </div>
+      </div>
+      <div style="margin-top:2rem;text-align:center;">
+        <p class="text-muted" style="font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;">Result</p>
+        <p id="conv-result" style="font-family:var(--font-serif);font-size:2.5rem;font-weight:700;color:var(--forest);margin-top:0.5rem;">0</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================
+     END: Converter Section
+     ============================================ -->
+
+<!-- ============================================
+     START: Footer Mount
+     ============================================ -->
+<div id="footer-mount"></div>
+<!-- ============================================
+     END: Footer Mount
+     ============================================ -->
+
+<!-- ============================================
+     START: Scripts
+     ============================================ -->
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/custom-select.js"></script>
+<script src="assets/js/toast.js"></script>
+<script src="assets/js/darkmode.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/whatsapp.js"></script>
+<script src="assets/js/cursor.js"></script>
+<script src="assets/js/translate.js"></script>
+<script src="assets/js/converter.js"></script>
+<script src="assets/js/currency.js"></script>
+<script src="assets/js/scroll-progress.js"></script>
+<script src="assets/js/cookie-consent.js"></script>
+<script src="assets/js/font-adjuster.js"></script>
+<script src="assets/js/reading-progress.js"></script>
+<script src="assets/js/qrcode-generator.js"></script>
+<script src="assets/js/pwa.js"></script>
+<script src="assets/js/features-v2-init.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>setTimeout(()=>{if(typeof initCustomSelects==='function')initCustomSelects()},150));</script>
+<!-- ============================================
+     END: Scripts
+     ============================================ -->
+
+</body>
+</html>

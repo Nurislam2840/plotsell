@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Plots — PlotSell</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/features.css">
+<link rel="stylesheet" href="assets/css/dark-mode.css">
+<link rel="stylesheet" href="assets/css/features-v2.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0B1F17">
+<script>if(localStorage.getItem('plotsell_theme')==='dark')document.documentElement.setAttribute('data-theme','dark');if(localStorage.getItem('plotsell_font'))document.documentElement.style.fontSize={small:'90%',medium:'100%',large:'112%',xlarge:'124%'}[localStorage.getItem('plotsell_font')]||'100%';</script>
+</head>
+<body>
+<div id="navbar-mount"></div>
+
+<header class="page-header">
+  <div class="container"><p class="eyebrow">All Properties</p><h1>Explore Our Plots</h1><p>10 hand-selected premium plots across America's most desirable locations.</p></div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <form class="filters" id="filter-form" onsubmit="return false;">
+      <div class="form-group"><label class="form-label">Search</label><input type="text" class="form-input" id="filter-search" placeholder="Plot name or location..."></div>
+      <div class="form-group"><label class="form-label">Location</label><select class="form-select" id="filter-location"><option value="">All Locations</option></select></div>
+      <div class="form-group"><label class="form-label">Max Price</label><select class="form-select" id="filter-price"><option value="10000000">Any</option><option value="2000000">Under $2M</option><option value="4000000">Under $4M</option><option value="6000000">Under $6M</option></select></div>
+      <div class="form-group"><label class="form-label">Min Size</label><select class="form-select" id="filter-size"><option value="0">Any</option><option value="1">1+ Acres</option><option value="2">2+ Acres</option><option value="4">4+ Acres</option></select></div>
+      <button type="reset" class="btn btn--outline-dark" onclick="setTimeout(applyFilters,0)">Reset</button>
+    </form>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;">
+      <div class="filter-chips" id="active-chips"></div>
+      <div class="view-toggle" id="view-toggle">
+        <button data-view="grid" class="active" aria-label="Grid view"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button>
+        <button data-view="list" aria-label="List view"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3.5" cy="6" r="1.5"/><circle cx="3.5" cy="12" r="1.5"/><circle cx="3.5" cy="18" r="1.5"/></svg></button>
+      </div>
+    </div>
+    <p id="results-count" class="text-muted" style="margin-bottom:1.5rem;"></p>
+    <div class="grid grid--3" id="plots-grid"></div>
+    <div style="text-align:center;margin-top:3rem;"><button class="btn btn--outline-dark" id="toggle-map">🗺️ Show on Map</button></div>
+    <div id="map-wrap" style="display:none;margin-top:2rem;"><div class="map-wrap"><div id="map"></div></div></div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/favorites.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/custom-select.js"></script>
+<script src="assets/js/toast.js"></script>
+<script src="assets/js/darkmode.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/map.js"></script>
+<script src="assets/js/lightbox.js"></script>
+<script src="assets/js/whatsapp.js"></script>
+<script src="assets/js/cursor.js"></script>
+<script src="assets/js/translate.js"></script>
+<script src="assets/js/home.js"></script>
+<script src="assets/js/plots.js"></script>
+<script src="assets/js/features-init.js"></script>
+<script src="assets/js/currency.js"></script>
+<script src="assets/js/scroll-progress.js"></script>
+<script src="assets/js/cookie-consent.js"></script>
+<script src="assets/js/font-adjuster.js"></script>
+<script src="assets/js/reading-progress.js"></script>
+<script src="assets/js/qrcode-generator.js"></script>
+<script src="assets/js/pwa.js"></script>
+<script src="assets/js/features-v2-init.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => { if (typeof initCustomSelects === 'function') initCustomSelects(); }, 100);
+    const t = document.getElementById('toggle-map');
+    const w = document.getElementById('map-wrap');
+    t?.addEventListener('click', () => {
+      const showing = w.style.display === 'block';
+      w.style.display = showing ? 'none' : 'block';
+      t.textContent = showing ? '🗺️ Show on Map' : '📋 Hide Map';
+      if (!showing && typeof initPlotMap === 'function') setTimeout(() => initPlotMap('map'), 100);
+    });
+  });
+</script>
+</body>
+</html>

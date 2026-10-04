@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- ============================================
+     START: Head - Meta
+     ============================================ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compare Plots — PlotSell</title>
+<meta name="description" content="Compare up to 3 premium plots side by side.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!-- ============================================
+     END: Head - Meta
+     ============================================ -->
+
+<!-- ============================================
+     START: CSS Files
+     ============================================ -->
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/features.css">
+<link rel="stylesheet" href="assets/css/dark-mode.css">
+<link rel="stylesheet" href="assets/css/features-v2.css">
+<!-- ============================================
+     END: CSS Files
+     ============================================ -->
+
+<!-- ============================================
+     START: PWA & Theme
+     ============================================ -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0B1F17">
+<script>if(localStorage.getItem('plotsell_theme')==='dark')document.documentElement.setAttribute('data-theme','dark');if(localStorage.getItem('plotsell_font'))document.documentElement.style.fontSize={small:'90%',medium:'100%',large:'112%',xlarge:'124%'}[localStorage.getItem('plotsell_font')]||'100%';</script>
+<!-- ============================================
+     END: PWA & Theme
+     ============================================ -->
+</head>
+<body>
+
+<!-- ============================================
+     START: Navbar Mount
+     ============================================ -->
+<div id="navbar-mount"></div>
+<!-- ============================================
+     END: Navbar Mount
+     ============================================ -->
+
+<!-- ============================================
+     START: Page Header
+     ============================================ -->
+<header class="page-header">
+  <div class="container">
+    <p class="eyebrow">Side by Side</p>
+    <h1>Compare Plots</h1>
+    <p>Select up to 3 plots to compare their features and specifications.</p>
+  </div>
+</header>
+<!-- ============================================
+     END: Page Header
+     ============================================ -->
+
+<!-- ============================================
+     START: Compare Section
+     ============================================ -->
+<section class="section">
+  <div class="container">
+    <div id="compare-selectors" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0.75rem;margin-bottom:3rem;"></div>
+    <div id="compare-table-wrap"></div>
+  </div>
+</section>
+<!-- ============================================
+     END: Compare Section
+     ============================================ -->
+
+<!-- ============================================
+     START: Footer Mount
+     ============================================ -->
+<div id="footer-mount"></div>
+<!-- ============================================
+     END: Footer Mount
+     ============================================ -->
+
+<!-- ============================================
+     START: Scripts
+     ============================================ -->
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/favorites.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/toast.js"></script>
+<script src="assets/js/darkmode.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/whatsapp.js"></script>
+<script src="assets/js/cursor.js"></script>
+<script src="assets/js/translate.js"></script>
+<script src="assets/js/compare.js"></script>
+<script src="assets/js/currency.js"></script>
+<script src="assets/js/scroll-progress.js"></script>
+<script src="assets/js/cookie-consent.js"></script>
+<script src="assets/js/font-adjuster.js"></script>
+<script src="assets/js/reading-progress.js"></script>
+<script src="assets/js/qrcode-generator.js"></script>
+<script src="assets/js/pwa.js"></script>
+<script src="assets/js/features-v2-init.js"></script>
+<!-- ============================================
+     END: Scripts
+     ============================================ -->
+
+</body>
+</html>

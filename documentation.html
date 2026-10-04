@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- ============================================
+     START: Head - Meta
+     ============================================ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentation — PlotSell</title>
+<meta name="description" content="Complete documentation for the PlotSell premium real estate theme.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!-- ============================================
+     END: Head - Meta
+     ============================================ -->
+
+<!-- ============================================
+     START: CSS Files
+     ============================================ -->
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/features.css">
+<link rel="stylesheet" href="assets/css/dark-mode.css">
+<!-- ============================================
+     END: CSS Files
+     ============================================ -->
+
+<!-- ============================================
+     START: Custom Documentation Styles
+     ============================================ -->
+<style>
+  body { background: var(--ivory); }
+  .docs-wrap { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; padding-top: 90px; }
+  .docs-sidebar {
+    background: #fff; border-right: 1px solid rgba(11,31,23,0.08);
+    padding: 2rem 1.5rem; position: sticky; top: 90px;
+    height: calc(100vh - 90px); overflow-y: auto;
+  }
+  .docs-sidebar__title {
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: 1rem;
+    padding-bottom: 0.75rem; border-bottom: 1px solid rgba(200,162,74,0.15);
+  }
+  .docs-nav { list-style: none; margin-bottom: 2rem; }
+  .docs-nav li { margin-bottom: 0.25rem; }
+  .docs-nav a {
+    display: block; padding: 0.6rem 0.85rem; font-size: 0.88rem;
+    color: var(--charcoal); border-radius: 8px;
+    transition: all var(--t-fast); border-left: 3px solid transparent;
+  }
+  .docs-nav a:hover { background: rgba(200,162,74,0.08); color: var(--forest); border-left-color: var(--gold); padding-left: 1rem; }
+  .docs-nav a.active { background: rgba(200,162,74,0.12); color: var(--forest); font-weight: 600; border-left-color: var(--gold); }
+  .docs-main { padding: 3rem 3rem 5rem; max-width: 1100px; }
+  .docs-hero {
+    background: linear-gradient(135deg, var(--forest), var(--forest-light));
+    padding: 3rem; border-radius: 20px; color: var(--ivory);
+    margin-bottom: 3rem; position: relative; overflow: hidden;
+  }
+  .docs-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 80% 30%, rgba(200,162,74,0.25), transparent 60%);
+  }
+  .docs-hero__badge {
+    display: inline-block; padding: 0.35rem 1rem;
+    background: rgba(200,162,74,0.15); color: var(--gold);
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    font-weight: 700; border-radius: 100px; margin-bottom: 1rem;
+    position: relative; border: 1px solid rgba(200,162,74,0.3);
+  }
+  .docs-hero h1 { color: var(--ivory); font-size: clamp(1.75rem, 4vw, 2.75rem); margin-bottom: 1rem; position: relative; }
+  .docs-hero h1 span { color: var(--gold); }
+  .docs-hero p { color: rgba(247,245,239,0.75); max-width: 640px; position: relative; line-height: 1.7; }
+  .docs-hero__meta { display: flex; gap: 2rem; margin-top: 2rem; position: relative; flex-wrap: wrap; }
+  .docs-hero__meta-item strong {
+    display: block; color: var(--gold); font-size: 0.7rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 0.25rem; font-weight: 700;
+  }
+  .docs-hero__meta-item span { color: rgba(247,245,239,0.85); font-size: 0.85rem; }
+  .docs-section { margin-bottom: 4rem; scroll-margin-top: 110px; }
+  .docs-section__head {
+    display: flex; align-items: center; gap: 0.75rem;
+    margin-bottom: 1.5rem; padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(11,31,23,0.08);
+  }
+  .docs-section__num {
+    display: flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; background: var(--forest); color: var(--gold);
+    border-radius: 10px; font-family: monospace;
+    font-size: 0.85rem; font-weight: 700; flex-shrink: 0;
+  }
+  .docs-section h2 { font-size: 1.5rem; margin: 0; }
+  .docs-section h3 { font-size: 1.1rem; margin: 2rem 0 1rem; color: var(--forest); }
+  .docs-section p { line-height: 1.75; color: var(--charcoal); margin-bottom: 1rem; }
+  .docs-section ul, .docs-section ol { margin: 1rem 0 1.5rem 1.5rem; line-height: 1.8; }
+  .docs-section li { margin-bottom: 0.5rem; }
+  pre {
+    background: #0f1a14; color: #e8e6df; padding: 1.5rem;
+    border-radius: 12px; overflow-x: auto; font-family: monospace;
+    font-size: 0.82rem; line-height: 1.7; margin: 1rem 0 1.5rem;
+    border-left: 4px solid var(--gold);
+  }
+  code {
+    font-family: monospace; font-size: 0.85em;
+    background: rgba(200,162,74,0.12); color: var(--forest);
+    padding: 2px 8px; border-radius: 6px; font-weight: 500;
+  }
+  pre code { background: transparent; color: inherit; padding: 0; font-weight: 400; }
+  .info-box {
+    padding: 1.25rem 1.5rem; border-radius: 12px; margin: 1.5rem 0;
+    border-left: 4px solid var(--gold); background: rgba(200,162,74,0.06);
+    font-size: 0.92rem; line-height: 1.65;
+  }
+  .docs-table {
+    width: 100%; border-collapse: collapse; background: #fff;
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 4px 12px rgba(11,31,23,0.06);
+    margin: 1.5rem 0; font-size: 0.88rem;
+  }
+  .docs-table th {
+    background: var(--forest); color: var(--ivory);
+    padding: 1rem 1.25rem; text-align: left; font-weight: 600;
+    font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .docs-table td { padding: 0.9rem 1.25rem; border-bottom: 1px solid rgba(11,31,23,0.06); }
+  .docs-table tr:last-child td { border-bottom: none; }
+  .docs-table tr:hover { background: rgba(200,162,74,0.04); }
+  .swatch-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  .swatch { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(11,31,23,0.06); }
+  .swatch__color { height: 80px; }
+  .swatch__info { padding: 0.85rem; }
+  .swatch__name { font-size: 0.82rem; font-weight: 700; color: var(--forest); margin-bottom: 0.15rem; }
+  .swatch__hex { font-family: monospace; font-size: 0.72rem; color: var(--muted); }
+  .swatch__var { font-family: monospace; font-size: 0.68rem; color: var(--gold); margin-top: 0.25rem; }
+  .docs-top {
+    position: fixed; bottom: 24px; right: 24px; width: 46px; height: 46px;
+    background: var(--gold); color: var(--forest); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 10px 25px rgba(200,162,74,0.35);
+    cursor: pointer; opacity: 0; visibility: hidden;
+    transition: all var(--t-base); z-index: 900; border: none;
+  }
+  .docs-top.show { opacity: 1; visibility: visible; }
+  .docs-top:hover { transform: translateY(-4px); }
+  @media (max-width: 900px) {
+    .docs-wrap { grid-template-columns: 1fr; padding-top: 80px; }
+    .docs-sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid rgba(11,31,23,0.08); padding: 1.25rem; }
+    .docs-nav { display: flex; gap: 0.25rem; overflow-x: auto; margin-bottom: 0; padding-bottom: 0.5rem; }
+    .docs-nav li { flex-shrink: 0; margin: 0; }
+    .docs-nav a { white-space: nowrap; border-left: none; border-bottom: 2px solid transparent; padding: 0.5rem 0.85rem; }
+    .docs-nav a.active { border-left: none; border-bottom-color: var(--gold); padding-left: 0.85rem; }
+    .docs-main { padding: 1.5rem 1.25rem 4rem; }
+    .docs-hero { padding: 1.75rem; }
+    pre { font-size: 0.75rem; padding: 1.1rem; }
+  }
+  html { scroll-behavior: smooth; }
+</style>
+<!-- ============================================
+     END: Custom Documentation Styles
+     ============================================ -->
+</head>
+<body>
+
+<!-- ============================================
+     START: Top Navbar
+     ============================================ -->
+<nav class="navbar navbar--scrolled">
+  <div class="container navbar__inner">
+    <a href="index.html" class="navbar__logo">
+      <svg width="34" height="34" viewBox="0 0 60 60" fill="none">
+        <path d="M20 40V20C20 17.79 21.79 16 24 16H36C38.21 16 40 17.79 40 20V40" stroke="#C8A24A" stroke-width="4" stroke-linecap="round"/>
+        <path d="M40 20C40 17.79 41.79 16 44 16H56C58.21 16 60 17.79 60 20V40" stroke="#F7F5EF" stroke-width="4" stroke-linecap="round"/>
+        <line x1="20" y1="40" x2="60" y2="40" stroke="#C8A24A" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <span class="navbar__logo-text">Plot<span class="navbar__logo-accent">Sell</span></span>
+    </a>
+    <a href="index.html" class="btn btn--primary btn--sm">← Back to Site</a>
+  </div>
+</nav>
+<!-- ============================================
+     END: Top Navbar
+     ============================================ -->
+
+<div class="docs-wrap">
+
+  <!-- ============================================
+       START: Sidebar Navigation
+       ============================================ -->
+  <aside class="docs-sidebar">
+    <div class="docs-sidebar__title">Documentation</div>
+    <ul class="docs-nav">
+      <li><a href="#intro" class="active">Introduction</a></li>
+      <li><a href="#structure">File Structure</a></li>
+      <li><a href="#setup">Setup & Install</a></li>
+      <li><a href="#colors">Color Palette</a></li>
+      <li><a href="#typography">Typography</a></li>
+      <li><a href="#components">Components</a></li>
+      <li><a href="#pages">Pages</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#customize">Customization</a></li>
+      <li><a href="#credits">Credits</a></li>
+    </ul>
+  </aside>
+  <!-- ============================================
+       END: Sidebar Navigation
+       ============================================ -->
+
+  <!-- ============================================
+       START: Main Content
+       ============================================ -->
+  <main class="docs-main">
+
+    <!-- ============================================
+         START: Hero
+         ============================================ -->
+    <div class="docs-hero">
+      <span class="docs-hero__badge">Documentation</span>
+      <h1>PlotSell Theme<br><span>Complete Guide</span></h1>
+      <p>A premium, fully static real estate HTML template built with pure HTML5, CSS3, and vanilla JavaScript. No frameworks, no build tools, no dependencies.</p>
+      <div class="docs-hero__meta">
+        <div class="docs-hero__meta-item"><strong>Version</strong><span>2.0.0</span></div>
+        <div class="docs-hero__meta-item"><strong>Type</strong><span>HTML5 / CSS3 / ES6+</span></div>
+        <div class="docs-hero__meta-item"><strong>Theme</strong><span>Deep Forest & Gold</span></div>
+        <div class="docs-hero__meta-item"><strong>Updated</strong><span>March 2026</span></div>
+      </div>
+    </div>
+    <!-- ============================================
+         END: Hero
+         ============================================ -->
+
+    <!-- ============================================
+         START: Section 01 — Introduction
+         ============================================ -->
+    <section class="docs-section" id="intro">
+      <div class="docs-section__head"><span class="docs-section__num">01</span><h2>Introduction</h2></div>
+      <p><strong>PlotSell</strong> is a premium, luxury-focused real estate website template designed for land sellers, plot developers, and real estate agencies. It comes with <strong>18+ pages</strong>, <strong>30+ features</strong>, and a complete design system built around deep forest green and luxury gold colors.</p>
+      <h3>Key Highlights</h3>
+      <ul>
+        <li>Pure HTML, CSS, and JavaScript — no build step required</li>
+        <li>Fully responsive (mobile-first)</li>
+        <li>Dark mode with localStorage persistence</li>
+        <li>Multi-language toggle (English / Bengali)</li>
+        <li>Multi-currency switcher (USD/BDT/EUR/GBP/INR)</li>
+        <li>Interactive Leaflet map with plot markers</li>
+        <li>360° Virtual Tour with Pannellum</li>
+        <li>Lightbox image gallery with keyboard navigation</li>
+        <li>EMI calculator + Amortization schedule + Chart</li>
+        <li>Investment calculator, Rent vs Buy, Unit converter</li>
+        <li>Mortgage pre-qualification quiz</li>
+        <li>Neighborhood insights with scores</li>
+        <li>QR code generator for each plot</li>
+        <li>PWA — installable as mobile app</li>
+        <li>Live search with Ctrl + K</li>
+        <li>Favorites + Compare (localStorage)</li>
+        <li>Custom cursor, toast, parallax, scroll progress</li>
+        <li>Cookie consent + Font adjuster + Reading progress</li>
+      </ul>
+    </section>
+    <!-- ============================================
+         END: Section 01 — Introduction
+         ============================================ -->
+
+    <!-- ============================================
+         START: Section 02 — File Structure
+         ============================================ -->
+    <section class="docs-section" id="structure">
+      <div class="docs-section__head"><span class="docs-section__num">02</span><h2>File Structure</h2></div>
+      <p>The template follows a clean, organized folder structure:</p>
+      <pre><code>plotsell/
+├── manifest.json
+├── sw.js
+├── index.html
+├── plots.html
+├── plot-detail.html
+├── compare.html
+├── emi-calculator.html
+├── investment.html
+├── converter.html
+├── quiz.html
+├── rent-vs-buy.html
+├── book-visit.html
+├── about.html
+├── services.html
+├── gallery.html
+├── blog.html
+├── contact.html
+├── documentation.html
+├── 404.html
+└── assets/
+    ├── css/
+    │   ├── style.css
+    │   ├── components.css
+    │   ├── pages.css
+    │   ├── animations.css
+    │   ├── features.css
+    │   ├── features-v2.css
+    │   └── dark-mode.css
+    └── js/
+        ├── data.js
+        ├── components.js
+        ├── main.js
+        ├── favorites.js
+        ├── custom-select.js
+        ├── toast.js
+        ├── darkmode.js
+        ├── search.js
+        ├── translate.js
+        ├── map.js
+        ├── lightbox.js
+        ├── counter.js
+        ├── investment.js
+        ├── converter.js
+        ├── reviews.js
+        ├── share.js
+        ├── quiz.js
+        ├── newsletter.js
+        ├── whatsapp.js
+        ├── cursor.js
+        ├── parallax.js
+        ├── home.js
+        ├── plots.js
+        ├── plot-detail.js
+        ├── compare.js
+        ├── emi.js
+        ├── forms.js
+        ├── features-init.js
+        ├── scroll-progress.js
+        ├── cookie-consent.js
+        ├── font-adjuster.js
+        ├── reading-progress.js
+        ├── currency.js
+        ├── virtual-tour.js
+        ├── amortization.js
+        ├── neighborhood.js
+        ├── qrcode-generator.js
+        ├── pwa.js
+        ├── rent-vs-buy.js
+        └── features-v2-init.js</code></pre>
+    </section>
+    <!-- ============================================
+         END: Section 02 — File Structure
+         ============================================ -->
+
+    <!-- ============================================
+         START: Section 03 — Setup
+         ============================================ -->
+    <section class="docs-section" id="setup">
+      <div class="docs-section__head"><span class="docs-section__num">03</span><h2>Setup &amp; Installation</h2></div>
+      <h3>Option 1: Direct Open</h3>
+      <p>Simply open <code>index.html</code> in any modern browser. Everything works without a server.</p>
+      <h3>Option 2: Local Server (Recommended)</h3>
+      <pre><code># Python 3
+python3 -m http.server 8080
+
+# Node.js
+npx serve .
+
+# PHP
+php -S localhost:8080</code></pre>
+      <p>Then open <code>http://localhost:8080</code> in your browser.</p>
+      <div class="info-box"><strong>Note:</strong> The template uses CDN resources (Google Fonts, Leaflet map, Pannellum, Chart.js, QRCode, Unsplash images). An active internet connection is required.</div>
+      <h3>No Build Step Required</h3>
+      <p>Unlike modern frameworks, PlotSell requires <strong>no npm install, no webpack, no compilation</strong>. Just edit and refresh.</p>
+    </section>
+    <!-- ============================================
+         END: Section 03 — Setup
+         ============================================ -->
+
+    <!-- ============================================
+         START: Section 04 — Colors
+         ============================================ -->
+    <section class="docs-section" id="colors">
+      <div class="docs-section__head"><span class="docs-section__num">04</span><h2>Color Palette</h2></div>
+      <p>All colors are defined as CSS custom properties in <code>assets/css/style.css</code>:</p>
+      <div class="swatch-grid">
+        <div class="swatch"><div class="swatch__color" style="background:#0B1F17;"></div><div class="swatch__info"><div class="swatch__name">Forest</div><div class="swatch__hex">#0B1F17</div><div class="swatch__var">--forest</div></div></div>
+        <div class="swatch"><div class="swatch__color" style="background:#14291f;"></div><div class="swatch__info"><div class="swatch__name">Forest Light</div><div class="swatch__hex">#14291F</div><div class="swatch__var">--forest-light</div></div></div>
+        <div class="swatch"><div class="swatch__color" style="background:#C8A24A;"></div><div class="swatch__info"><div class="swatch__name">Gold</div><div class="swatch__hex">#C8A24A</div><div class="swatch__var">--gold</div></div></div>
+        <div class="swatch"><div class="swatch__color" style="background:#d9b869;"></div><div class="swatch__info"><div class="swatch__name">Gold Light</div><div class="swatch__hex">#D9B869</div><div class="swatch__var">--gold-light</div></div></div>
+        <div class="swatch"><div class="swatch__color" style="background:#F7F5EF;border:1px solid #eee;"></div><div class="swatch__info"><div class="swatch__name">Ivory</div><div class="swatch__hex">#F7F5EF</div><div class="swatch__var">--ivory</div></div></div>
+        <div class="swatch"><div class="swatch__color" style="background:#1A1A1A;"></div><div class="swatch__info"><div class="swatch__name">Charcoal</div><div class="swatch__hex">#1A1A1A</div><div class="swatch__var">--charcoal</div></div></div>
+      </div>
+      <h3>Usage</h3>
+      <pre><code>/* CSS */
+.my-element {
+  background: var(--forest);
+  color: var(--gold);
+  border: 1px solid var(--border);
+}</code></pre>
+    </section>
+    <!-- ============================================
+         END: Section 04 — Colors
+         ============================================ -->
+
+    <!-- ============================================
+         START: Section 05 — Typography
+         ============================================ -->
+    <section class="docs-section" id="typography">
+      <div class="docs-section__head"><span class="docs-section__num">05</span><h2>Typography</h2></div>
+      <table class="docs-table">
+        <thead><tr><th>Usage</th><th>Font Family</th><th>Weights</th><th>CSS Variable</th></tr></thead>
+        <tbody>
+          <tr><td>Headings (H1–H4)</td><td><strong>Playfair Display</strong></td><td>400, 600, 700, 800</td><td><code>--font-serif</code></td></tr>
+          <tr><td>Body, UI</td><td><strong>Inter</strong></td><td>400, 500, 600, 700</td><td><code>--font-sans</code></td></tr>
+        </tbody>
+      </table>
+      <h3>Heading Sizes</h3>
+      <pre><code>h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h4 { font-size: 1.25rem; }</code></pre>
+    </section>
+    <!-- ============================================
+         END: Section 05 — Typography
+         ============================================ -->
+
+    <!-- ============================================
+         START: Section 06 — Components
+         ============================================ -->
+    <section class="docs-section" id="components">
+      <div class="docs-section__head"><span class="docs-section__num">06</span><h2>Components</h2></div>
+      <h3>Buttons</h3>
+      <table class="docs-table">
+        <thead><tr><th>Class</th><th>Style</th></tr></thead>
+        <tbody>
+          <tr><td><code>btn--primary</code></td><td>Gold background, forest text</td></tr>
+          <tr><td><code>btn--dark</code></td><td>Forest background, ivory text</td></tr>
+          <tr><td><code>btn--outline</code></td><td>Transparent, ivory border</td></tr>
+          <tr><td><code>btn--outline-dark</code></td><td>Transparent, forest border</td></tr>
+        </tbody>
+      </table>
+      <h3>Toast Notifications</h3>
+      <pre><code>Toast.success('Saved to favorites!');
+Toast.error('Something went wrong');
+Toast.info('Language changed', 2000);</code></pre>
+      <h3>Custom Select</h3>
+      <p>Native <code>&lt;select&gt;</code> is auto-enhanced by <code>custom-select.js</code>. Just call <code>initCustomSelects()</code> after dynamic changes.</p>
+    </section>
+    <!-- ============================================
+         END: Section 06 — Components
+         ============================================ -->
+
+    <!-- ============================================
+         START: Section 07 — Pages
+         ============================================ -->
+    <section class="docs-section" id="pages">
+      <div class="docs-section__head"><span class="docs-section__num">07</span><h2>Pages Overview</h2></div>
+      <table class="docs-table">
+        <thead><tr><th>Page</th><th>File</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>Home</td><td><code>index.html</code></td><td>Hero, featured plots, map, testimonials</td></tr>
+          <tr><td>All Plots</td><td><code>plots.html</code></td><td>Listing with filters</td></tr>
+          <tr><td>Plot Detail</td><td><code>plot-detail.html?id=1</code></td><td>Detail + 360° tour + neighborhood</td></tr>
+          <tr><td>Compare</td><td><code>compare.html</code></td><td>Side-by-side comparison</td></tr>
+          <tr><td>EMI Calculator</td><td><code>emi-calculator.html</code></td><td>EMI + Amortization chart</td></tr>
+          <tr><td>Investment</td><td><code>investment.html</code></td><td>ROI calculator</td></tr>
+          <tr><td>Rent vs Buy</td><td><code>rent-vs-buy.html</code></td><td>Buying vs renting comparison</td></tr>
+          <tr><td>Converter</td><td><code>converter.html</code></td><td>Land unit converter</td></tr>
+          <tr><td>Quiz</td><td><code>quiz.html</code></td><td>Mortgage pre-qualification</td></tr>
+          <tr><td>Book Visit</td><td><code>book-visit.html</code></td><td>Site visit booking</td></tr>
+          <tr><td>About</td><td><code>about.html</code></td><td>Company story</td></tr>
+          <tr><td>Services</td><td><code>services.html</code></td><td>Service offerings</td></tr>
+          <tr><td>Gallery</td><td><code>gallery.html</code></td><td>Photo grid with lightbox</td></tr>
+          <tr><td>Blog</td><td><code>blog.html</code></td><td>Article listing</td></tr>
+          <tr><td>Contact</td><td><code>contact.html</code></td><td>Contact form</td></tr>
+          <tr><td>404</td><td><code>404.html</code></td><td>Not found</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <!-- ============================================
+         END: Section 07 — Pages
+         ============================================ -->
+
+    <!-- ============================================
+         START: Section 08 — Features
+         ============================================ -->
+    <section class="docs-section" id="features">
+      <div class="docs-section__head"><span class="docs-section__num">08</span><h2>Features</h2></div>
+      <table class="docs-table">
+        <thead><tr><th>Feature</th><th>File</th></tr></thead>
+        <tbody>
+          <tr><td>Live Search (Ctrl+K)</td><td><code>search.js</code></td></tr>
+          <tr><td>Dark Mode</td><td><code>darkmode.js</code></td></tr>
+          <tr><td>Language (EN/BN)</td><td><code>translate.js</code></td></tr>
+          <tr><td>Multi-Currency</td><td><code>currency.js</code></td></tr>
+          <tr><td>Favorites</td><td><code>favorites.js</code></td></tr>
+          <tr><td>Interactive Map</td><td><code>map.js</code></td></tr>
+          <tr><td>Lightbox</td><td><code>lightbox.js</code></td></tr>
+          <tr><td>EMI Calculator</td><td><code>emi.js</code></td></tr>
+          <tr><td>Amortization Chart</td><td><code>amortization.js</code></td></tr>
+          <tr><td>Investment Calc</td><td><code>investment.js</code></td></tr>
+          <tr><td>Rent vs Buy</td><td><code>rent-vs-buy.js</code></td></tr>
+          <tr><td>Unit Converter</td><td><code>converter.js</code></td></tr>
+          <tr><td>Mortgage Quiz</td><td><code>quiz.js</code></td></tr>
+          <tr><td>360° Tour</td><td><code>virtual-tour.js</code></td></tr>
+          <tr><td>Neighborhood Insights</td><td><code>neighborhood.js</code></td></tr>
+          <tr><td>QR Code Generator</td><td><code>qrcode-generator.js</code></td></tr>
+          <tr><td>PWA Install</td><td><code>pwa.js</code></td></tr>
+          <tr><td>Toast Notifications</td><td><code>toast.js</code></td></tr>
+          <tr><td>Scroll Progress</td><td><code>scroll-progress.js</code></td></tr>
+          <tr><td>Reading Progress</td><td><code>reading-progress.js</code></td></tr>
+          <tr><td>Cookie Consent</td><td><code>cookie-consent.js</code></td></tr>
+          <tr><td>Font Adjuster</td><td><code>font-adjuster.js</code></td></tr>
+          <tr><td>Custom Cursor</td><td><code>cursor.js</code></td></tr>
+          <tr><td>Parallax</td><td><code>parallax.js</code></td></tr>
+        </tbody>
+      </table>
+    </section>
+    <!-- ============================================
+         END: Section 08 — Features
+         ============================================ -->
+
+    <!-- ============================================
+         START: Section 09 — Customization
+         ============================================ -->
+    <section class="docs-section" id="customize">
+      <div class="docs-section__head"><span class="docs-section__num">09</span><h2>Customization</h2></div>
+      <h3>Change Brand Colors</h3>
+      <pre><code>:root {
+  --forest: #0B1F17;
+  --gold: #C8A24A;
+  --ivory: #F7F5EF;
+}</code></pre>
+      <h3>Update Plot Data</h3>
+      <p>Edit <code>assets/js/data.js</code>. Each plot structure:</p>
+      <pre><code>{
+  id: 1,
+  title: "The Emerald Ridge",
+  location: "Beverly Hills, California",
+  size: "2.5 Acres",
+  price: 4500000,
+  priceLabel: "$4,500,000",
+  image: "https://...",
+  gallery: ["https://..."],
+  features: ["Feature 1"]
+}</code></pre>
+      <h3>WhatsApp Number</h3>
+      <p>In <code>assets/js/whatsapp.js</code>:</p>
+      <pre><code>const phone = '15551234567';</code></pre>
+      <h3>Contact Info</h3>
+      <p>Edit footer in <code>assets/js/components.js</code>.</p>
+    </section>
+    <!-- ============================================
+         END: Section 09 — Customization
+         ============================================ -->
+
+    <!-- ============================================
+         START: Section 10 — Credits
+         ============================================ -->
+    <section class="docs-section" id="credits">
+      <div class="docs-section__head"><span class="docs-section__num">10</span><h2>Credits &amp; Resources</h2></div>
+      <table class="docs-table">
+        <thead><tr><th>Resource</th><th>License</th></tr></thead>
+        <tbody>
+          <tr><td>Playfair Display (Google Fonts)</td><td>OFL</td></tr>
+          <tr><td>Inter (Google Fonts)</td><td>OFL</td></tr>
+          <tr><td>Leaflet.js</td><td>BSD-2-Clause</td></tr>
+          <tr><td>Pannellum</td><td>MIT</td></tr>
+          <tr><td>Chart.js</td><td>MIT</td></tr>
+          <tr><td>QRCode.js</td><td>MIT</td></tr>
+          <tr><td>CartoDB Tiles</td><td>Free tier</td></tr>
+          <tr><td>Unsplash Images</td><td>Unsplash License</td></tr>
+        </tbody>
+      </table>
+      <div class="info-box"><strong>🎉 You're all set!</strong> If you have any questions, refer to the section above or reach out through the contact page.</div>
+    </section>
+    <!-- ============================================
+         END: Section 10 — Credits
+         ============================================ -->
+
+  </main>
+  <!-- ============================================
+       END: Main Content
+       ============================================ -->
+
+</div>
+
+<!-- ============================================
+     START: Back to Top
+     ============================================ -->
+<button class="docs-top" id="docsTop" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+    <line x1="12" y1="19" x2="12" y2="5"/>
+    <polyline points="5 12 12 5 19 12"/>
+  </svg>
+</button>
+<!-- ============================================
+     END: Back to Top
+     ============================================ -->
+
+<!-- ============================================
+     START: Documentation Scripts
+     ============================================ -->
+<script>
+  const sections = document.querySelectorAll('.docs-section');
+  const navLinks = document.querySelectorAll('.docs-nav a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+      }
+    });
+  }, { rootMargin: '-100px 0px -70% 0px' });
+  sections.forEach(sec => observer.observe(sec));
+
+  const topBtn = document.getElementById('docsTop');
+  window.addEventListener('scroll', () => topBtn.classList.toggle('show', window.scrollY > 400), { passive: true });
+  topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        const y = target.getBoundingClientRect().top + window.scrollY - 100;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+<!-- ============================================
+     END: Documentation Scripts
+     ============================================ -->
+
+</body>
+</html>

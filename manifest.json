@@ -1,0 +1,25 @@
+{
+  "name": "PlotSell — Premium Land Marketplace",
+  "short_name": "PlotSell",
+  "description": "Discover exclusive land plots for your dream home or investment.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0B1F17",
+  "theme_color": "#C8A24A",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjM2IiBmaWxsPSIjMEIxRjE3Ii8+PHBhdGggZD0iTTU2IDExMlY2NEM1NiA1Ny4zNyA2MS4zNyA1MiA2OCA1MkgxMDhDMTE0LjYzIDUyIDEyMCA1Ny4zNyAxMjAgNjRWMTEyIiBzdHJva2U9IiNDOEEyNEEiIHN0cm9rZS13aWR0aD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xMjAgNjRDMTIwIDU3LjM3IDEyNS4zNyA1MiAxMzIgNTJIMTcyIiBzdHJva2U9IiNGN0Y1RUYiIHN0cm9rZS13aWR0aD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIvPjxsaW5lIHgxPSI1NiIgeTE9IjExMiIgeDI9IjE3MiIgeTI9IjExMiIgc3Ryb2tlPSIjQzhBMjRBIiBzdHJva2Utd2lkdGg9IjEwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4=",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9Ijk2IiBmaWxsPSIjMEIxRjE3Ii8+PHBhdGggZD0iTTE0OS4zMyAyOTguNjdWMTcwLjY3QzE0OS4zMyAxNTMuMDIgMTYzLjY4IDEzOC42NyAxODEuMzMgMTM4LjY3SDI4OEMzMDUuNjUgMTM4LjY3IDMyMCAxNTMuMDIgMzIwIDE3MC42N1YyOTguNjciIHN0cm9rZT0iI0M4QTI0QSIgc3Ryb2tlLXdpZHRoPSIyNi42NyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTMyMCAxNzAuNjdDMzIwIDE1My4wMiAzMzQuMzUgMTM4LjY3IDM1MiAxMzguNjdINDY5LjMzIiBzdHJva2U9IiNGN0Y1RUYiIHN0cm9rZS13aWR0aD0iMjYuNjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIvPjxsaW5lIHgxPSIxNDkuMzMiIHkxPSIyOTguNjciIHgyPSI0NjkuMzMiIHkyPSIyOTguNjciIHN0cm9rZT0iI0M4QTI0QSIgc3Ryb2tlLXdpZHRoPSIyNi42NyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

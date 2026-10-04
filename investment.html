@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- ============================================
+     START: Head - Meta
+     ============================================ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investment Calculator — PlotSell</title>
+<meta name="description" content="Calculate the future value and ROI of your land investment.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!-- ============================================
+     END: Head - Meta
+     ============================================ -->
+
+<!-- ============================================
+     START: CSS Files
+     ============================================ -->
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/features.css">
+<link rel="stylesheet" href="assets/css/dark-mode.css">
+<link rel="stylesheet" href="assets/css/features-v2.css">
+<!-- ============================================
+     END: CSS Files
+     ============================================ -->
+
+<!-- ============================================
+     START: PWA & Theme
+     ============================================ -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0B1F17">
+<script>if(localStorage.getItem('plotsell_theme')==='dark')document.documentElement.setAttribute('data-theme','dark');if(localStorage.getItem('plotsell_font'))document.documentElement.style.fontSize={small:'90%',medium:'100%',large:'112%',xlarge:'124%'}[localStorage.getItem('plotsell_font')]||'100%';</script>
+<!-- ============================================
+     END: PWA & Theme
+     ============================================ -->
+</head>
+<body>
+
+<!-- ============================================
+     START: Navbar Mount
+     ============================================ -->
+<div id="navbar-mount"></div>
+<!-- ============================================
+     END: Navbar Mount
+     ============================================ -->
+
+<!-- ============================================
+     START: Page Header
+     ============================================ -->
+<header class="page-header">
+  <div class="container">
+    <p class="eyebrow">ROI Planner</p>
+    <h1>Investment Calculator</h1>
+    <p>See how much your land investment could grow over time.</p>
+  </div>
+</header>
+<!-- ============================================
+     END: Page Header
+     ============================================ -->
+
+<!-- ============================================
+     START: Investment Form
+     ============================================ -->
+<section class="section">
+  <div class="container" style="max-width:720px;">
+    <div class="emi-form" id="invest-form">
+      <div class="form-group">
+        <label class="form-label">Initial Investment ($)</label>
+        <input type="number" class="form-input" id="inv-initial" value="1000000">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Expected Appreciation Rate (% per year)</label>
+        <input type="number" class="form-input" id="inv-rate" value="8" step="0.1">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Holding Period (years)</label>
+        <input type="number" class="form-input" id="inv-years" value="10">
+      </div>
+      <div class="invest-result-grid">
+        <div class="invest-result-box">
+          <div class="invest-result-box__label">Future Value</div>
+          <div class="invest-result-box__value" id="inv-future">$0</div>
+        </div>
+        <div class="invest-result-box">
+          <div class="invest-result-box__label">Total Gain</div>
+          <div class="invest-result-box__value" id="inv-gain">$0</div>
+        </div>
+        <div class="invest-result-box">
+          <div class="invest-result-box__label">ROI</div>
+          <div class="invest-result-box__value" id="inv-roi">0%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================
+     END: Investment Form
+     ============================================ -->
+
+<!-- ============================================
+     START: Footer Mount
+     ============================================ -->
+<div id="footer-mount"></div>
+<!-- ============================================
+     END: Footer Mount
+     ============================================ -->
+
+<!-- ============================================
+     START: Scripts
+     ============================================ -->
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/toast.js"></script>
+<script src="assets/js/darkmode.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/whatsapp.js"></script>
+<script src="assets/js/cursor.js"></script>
+<script src="assets/js/translate.js"></script>
+<script src="assets/js/investment.js"></script>
+<script src="assets/js/currency.js"></script>
+<script src="assets/js/scroll-progress.js"></script>
+<script src="assets/js/cookie-consent.js"></script>
+<script src="assets/js/font-adjuster.js"></script>
+<script src="assets/js/reading-progress.js"></script>
+<script src="assets/js/qrcode-generator.js"></script>
+<script src="assets/js/pwa.js"></script>
+<script src="assets/js/features-v2-init.js"></script>
+<!-- ============================================
+     END: Scripts
+     ============================================ -->
+
+</body>
+</html>

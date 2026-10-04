@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- ============================================
+     START: Head - Meta
+     ============================================ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Site Visit — PlotSell</title>
+<meta name="description" content="Schedule a private site visit with our land specialists.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!-- ============================================
+     END: Head - Meta
+     ============================================ -->
+
+<!-- ============================================
+     START: CSS Files
+     ============================================ -->
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/features.css">
+<link rel="stylesheet" href="assets/css/dark-mode.css">
+<link rel="stylesheet" href="assets/css/features-v2.css">
+<!-- ============================================
+     END: CSS Files
+     ============================================ -->
+
+<!-- ============================================
+     START: PWA & Theme
+     ============================================ -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0B1F17">
+<script>if(localStorage.getItem('plotsell_theme')==='dark')document.documentElement.setAttribute('data-theme','dark');if(localStorage.getItem('plotsell_font'))document.documentElement.style.fontSize={small:'90%',medium:'100%',large:'112%',xlarge:'124%'}[localStorage.getItem('plotsell_font')]||'100%';</script>
+<!-- ============================================
+     END: PWA & Theme
+     ============================================ -->
+</head>
+<body>
+
+<!-- ============================================
+     START: Navbar Mount
+     ============================================ -->
+<div id="navbar-mount"></div>
+<!-- ============================================
+     END: Navbar Mount
+     ============================================ -->
+
+<!-- ============================================
+     START: Page Header
+     ============================================ -->
+<header class="page-header">
+  <div class="container">
+    <p class="eyebrow">Schedule</p>
+    <h1>Book a Site Visit</h1>
+    <p>Experience our premium plots firsthand. Fill out the form and our team will contact you.</p>
+  </div>
+</header>
+<!-- ============================================
+     END: Page Header
+     ============================================ -->
+
+<!-- ============================================
+     START: Booking Form
+     ============================================ -->
+<section class="section">
+  <div class="container" style="max-width:720px;">
+    <form data-validate style="background:#fff;padding:2.5rem;border-radius:20px;box-shadow:var(--shadow-md);">
+      <div class="grid grid--2" style="gap:1rem;">
+        <div class="form-group"><label class="form-label">Full Name *</label><input type="text" class="form-input" name="name" required></div>
+        <div class="form-group"><label class="form-label">Phone *</label><input type="tel" class="form-input" name="phone" required></div>
+      </div>
+      <div class="form-group"><label class="form-label">Email *</label><input type="email" class="form-input" name="email" required></div>
+      <div class="form-group">
+        <label class="form-label">Select Plot</label>
+        <select class="form-select" name="plot" id="book-plot-select">
+          <option value="">Choose a plot...</option>
+        </select>
+      </div>
+      <div class="grid grid--2" style="gap:1rem;">
+        <div class="form-group"><label class="form-label">Preferred Date *</label><input type="date" class="form-input" name="date" required></div>
+        <div class="form-group"><label class="form-label">Preferred Time *</label><input type="time" class="form-input" name="time" required></div>
+      </div>
+      <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" name="message" placeholder="Any specific requirements..."></textarea></div>
+      <button type="submit" class="btn btn--primary btn--lg" style="width:100%;">Confirm Booking</button>
+      <div id="form-success" style="display:none;margin-top:1rem;padding:1rem;background:rgba(200,162,74,0.1);border-radius:12px;color:#0B1F17;font-weight:600;text-align:center;"></div>
+    </form>
+  </div>
+</section>
+<!-- ============================================
+     END: Booking Form
+     ============================================ -->
+
+<!-- ============================================
+     START: Footer Mount
+     ============================================ -->
+<div id="footer-mount"></div>
+<!-- ============================================
+     END: Footer Mount
+     ============================================ -->
+
+<!-- ============================================
+     START: Scripts
+     ============================================ -->
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/custom-select.js"></script>
+<script src="assets/js/toast.js"></script>
+<script src="assets/js/darkmode.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/whatsapp.js"></script>
+<script src="assets/js/cursor.js"></script>
+<script src="assets/js/translate.js"></script>
+<script src="assets/js/forms.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sel = document.getElementById('book-plot-select');
+    if (sel) PLOTS.forEach(p => {
+      const o = document.createElement('option');
+      o.value = p.id;
+      o.textContent = p.title + ' — ' + p.location;
+      sel.appendChild(o);
+    });
+    const pid = new URLSearchParams(location.search).get('plot');
+    if (pid) sel.value = pid;
+    if (typeof initCustomSelects === 'function') initCustomSelects();
+  });
+</script>
+<script src="assets/js/currency.js"></script>
+<script src="assets/js/scroll-progress.js"></script>
+<script src="assets/js/cookie-consent.js"></script>
+<script src="assets/js/font-adjuster.js"></script>
+<script src="assets/js/reading-progress.js"></script>
+<script src="assets/js/qrcode-generator.js"></script>
+<script src="assets/js/pwa.js"></script>
+<script src="assets/js/features-v2-init.js"></script>
+<!-- ============================================
+     END: Scripts
+     ============================================ -->
+
+</body>
+</html>

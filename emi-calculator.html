@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMI Calculator — PlotSell</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/features.css">
+<link rel="stylesheet" href="assets/css/dark-mode.css">
+<link rel="stylesheet" href="assets/css/features-v2.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0B1F17">
+<script>if(localStorage.getItem('plotsell_theme')==='dark')document.documentElement.setAttribute('data-theme','dark');if(localStorage.getItem('plotsell_font'))document.documentElement.style.fontSize={small:'90%',medium:'100%',large:'112%',xlarge:'124%'}[localStorage.getItem('plotsell_font')]||'100%';</script>
+</head>
+<body>
+<div id="navbar-mount"></div>
+
+<header class="page-header">
+  <div class="container"><p class="eyebrow">Financial Planning</p><h1>EMI Calculator</h1><p>Plan your land investment with our easy-to-use EMI calculator.</p></div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="emi-wrap">
+      <div class="emi-form">
+        <div class="form-group"><label class="form-label">Property Price ($)</label><input type="number" class="form-input" id="emi-price" value="4500000"><input type="range" id="emi-price-range" min="500000" max="10000000" step="50000" value="4500000" style="margin-top:0.5rem;"></div>
+        <div class="form-group"><label class="form-label">Down Payment ($)</label><input type="number" class="form-input" id="emi-down" value="900000"></div>
+        <div class="form-group"><label class="form-label">Interest Rate (%/yr)</label><input type="number" class="form-input" id="emi-rate" value="6.5" step="0.1"></div>
+        <div class="form-group"><label class="form-label">Loan Tenure (years)</label><input type="number" class="form-input" id="emi-years" value="20"></div>
+      </div>
+      <div class="emi-result">
+        <p style="opacity:0.6;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.2em;">Monthly EMI</p>
+        <div class="emi-result__amount" id="emi-result">$0</div>
+        <div class="emi-result__row"><span>Principal Amount</span><span id="emi-principal">$0</span></div>
+        <div class="emi-result__row"><span>Total Interest</span><span id="emi-interest">$0</span></div>
+        <div class="emi-result__row"><span>Total Payable</span><span id="emi-total">$0</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head"><p class="eyebrow">Yearly Breakdown</p><h2>Amortization Schedule</h2><p>See how your payment splits between principal and interest each year.</p></div>
+    <div id="amort-wrap"></div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/toast.js"></script>
+<script src="assets/js/darkmode.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/whatsapp.js"></script>
+<script src="assets/js/cursor.js"></script>
+<script src="assets/js/translate.js"></script>
+<script src="assets/js/emi.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="assets/js/currency.js"></script>
+<script src="assets/js/scroll-progress.js"></script>
+<script src="assets/js/cookie-consent.js"></script>
+<script src="assets/js/font-adjuster.js"></script>
+<script src="assets/js/reading-progress.js"></script>
+<script src="assets/js/qrcode-generator.js"></script>
+<script src="assets/js/amortization.js"></script>
+<script src="assets/js/pwa.js"></script>
+<script src="assets/js/features-v2-init.js"></script>
+</body>
+</html>
